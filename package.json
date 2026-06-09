@@ -11,7 +11,7 @@
     "build": "vp build",
     "preview": "vp preview",
     "test": "vp test run",
-    "format": "biome format",
+    "format": "vp format",
     "lint": "biome lint",
     "check": "biome check"
   },
@@ -82,18 +82,18 @@
     "jsdom": "^29.1.1",
     "typescript": "^6.0.3",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
-    "vite-plus": "latest"
+    "vite-plus": "latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
   },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+  },
+  "packageManager": "npm@11.16.0",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
       "lightningcss"
     ]
-  },
-  "packageManager": "npm@11.16.0",
-  "overrides": {
-    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
   }
 }
