@@ -12,20 +12,18 @@
     "preview": "vp preview",
     "test": "vp test run",
     "format": "vp format",
-    "lint": "biome lint",
-    "check": "biome check"
+    "check": "vp check",
+    "check:fix": "vp check --fix"
   },
   "dependencies": {
+    "@ag-ui/core": "^0.0.56",
     "@base-ui/react": "^1.5.0",
     "@faker-js/faker": "^10.4.0",
     "@fontsource-variable/inter": "^5.2.8",
     "@tailwindcss/vite": "^4.3.0",
     "@tanstack/ai": "latest",
-    "@tanstack/ai-anthropic": "latest",
     "@tanstack/ai-client": "latest",
     "@tanstack/ai-gemini": "latest",
-    "@tanstack/ai-ollama": "latest",
-    "@tanstack/ai-openai": "latest",
     "@tanstack/ai-react": "latest",
     "@tanstack/match-sorter-utils": "latest",
     "@tanstack/react-devtools": "latest",
@@ -50,12 +48,11 @@
     "lucide-react": "^1.17.0",
     "next-themes": "^0.4.6",
     "nitro": "npm:nitro-nightly@latest",
-    "radix-ui": "^1.5.0",
     "react": "^19.2.7",
     "react-day-picker": "^10.0.1",
     "react-dom": "^19.2.7",
     "react-resizable-panels": "^4.11.2",
-    "recharts": "^3.8.0",
+    "recharts": "^3.8.1",
     "shadcn": "^4.11.0",
     "sonner": "^2.0.7",
     "streamdown": "^2.5.0",
@@ -66,7 +63,6 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.16",
     "@rolldown/plugin-babel": "^0.2.3",
     "@tailwindcss/typography": "^0.5.20",
     "@tanstack/devtools-event-client": "latest",
@@ -83,13 +79,13 @@
     "typescript": "^6.0.3",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vite-plus": "latest",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    "vitest": "^0.1.24"
   },
   "overrides": {
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
     "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
   },
-  "packageManager": "npm@11.16.0",
+  "packageManager": "bun@1.3.14",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
