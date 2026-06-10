@@ -78,8 +78,7 @@
     "jsdom": "^29.1.1",
     "typescript": "^6.0.3",
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
-    "vite-plus": "latest",
-    "vitest": "^0.1.24"
+    "vite-plus": "latest"
   },
   "overrides": {
     "vite": "npm:@voidzero-dev/vite-plus-core@latest",
