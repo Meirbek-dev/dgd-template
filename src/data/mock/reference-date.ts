@@ -1,0 +1,1 @@
+export const DEMO_REFERENCE_DATE = new Date("2026-06-11T09:00:00.000Z");

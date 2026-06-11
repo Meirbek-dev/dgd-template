@@ -9,38 +9,128 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as DemoSettingsRouteImport } from './routes/demo-settings'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppealsIndexRouteImport } from './routes/appeals/index'
+import { Route as AppealsAppealIdRouteImport } from './routes/appeals/$appealId'
 
+const DemoSettingsRoute = DemoSettingsRouteImport.update({
+  id: '/demo-settings',
+  path: '/demo-settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppealsIndexRoute = AppealsIndexRouteImport.update({
+  id: '/appeals/',
+  path: '/appeals/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppealsAppealIdRoute = AppealsAppealIdRouteImport.update({
+  id: '/appeals/$appealId',
+  path: '/appeals/$appealId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/dashboard': typeof DashboardRoute
+  '/demo-settings': typeof DemoSettingsRoute
+  '/appeals/$appealId': typeof AppealsAppealIdRoute
+  '/appeals/': typeof AppealsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/dashboard': typeof DashboardRoute
+  '/demo-settings': typeof DemoSettingsRoute
+  '/appeals/$appealId': typeof AppealsAppealIdRoute
+  '/appeals': typeof AppealsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/dashboard': typeof DashboardRoute
+  '/demo-settings': typeof DemoSettingsRoute
+  '/appeals/$appealId': typeof AppealsAppealIdRoute
+  '/appeals/': typeof AppealsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/analytics'
+    | '/dashboard'
+    | '/demo-settings'
+    | '/appeals/$appealId'
+    | '/appeals/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/analytics'
+    | '/dashboard'
+    | '/demo-settings'
+    | '/appeals/$appealId'
+    | '/appeals'
+  id:
+    | '__root__'
+    | '/'
+    | '/analytics'
+    | '/dashboard'
+    | '/demo-settings'
+    | '/appeals/$appealId'
+    | '/appeals/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  DashboardRoute: typeof DashboardRoute
+  DemoSettingsRoute: typeof DemoSettingsRoute
+  AppealsAppealIdRoute: typeof AppealsAppealIdRoute
+  AppealsIndexRoute: typeof AppealsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/demo-settings': {
+      id: '/demo-settings'
+      path: '/demo-settings'
+      fullPath: '/demo-settings'
+      preLoaderRoute: typeof DemoSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +138,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/appeals/': {
+      id: '/appeals/'
+      path: '/appeals'
+      fullPath: '/appeals/'
+      preLoaderRoute: typeof AppealsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/appeals/$appealId': {
+      id: '/appeals/$appealId'
+      path: '/appeals/$appealId'
+      fullPath: '/appeals/$appealId'
+      preLoaderRoute: typeof AppealsAppealIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  DashboardRoute: DashboardRoute,
+  DemoSettingsRoute: DemoSettingsRoute,
+  AppealsAppealIdRoute: AppealsAppealIdRoute,
+  AppealsIndexRoute: AppealsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
